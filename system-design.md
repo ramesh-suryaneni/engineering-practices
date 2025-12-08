@@ -1,4 +1,4 @@
-![](images/system-design.png)
+![](images/system-design.jpg)
 
 # **System Design**
 
