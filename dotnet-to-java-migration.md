@@ -1,4 +1,4 @@
-**.net to java migration steps**
+**.NET to java migration steps**
 
 - .net analysis parameters 
 - Input 
