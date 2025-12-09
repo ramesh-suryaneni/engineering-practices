@@ -2,7 +2,7 @@
 
 ## Patterns
 
-- [Fanout-on-Write Pattern(pull)](#fanout-on-write-pattern)
+- [Fanout-on-Write Pattern(push)](#fanout-on-write-pattern)
 - [Fanout-on-Read Pattern(pull)](#fanout-on-read-pattern)
 
 
