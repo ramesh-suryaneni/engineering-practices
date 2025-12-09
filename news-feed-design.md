@@ -18,6 +18,20 @@ When a user creates a new piece of content (e.g., a social media post):
 2. The content is instantly written into each recipient's individual, precomputed feed or timeline
 3. When a user views their feed, the data is already there and can be retrieved with simple, fast lookups
 
+```
+                User A Creates Post
+                (Post ID: 78901)
+                        |
+                        v
+                Fanout Worker
+        (Fetches A's 10,000 followers)
+                        |
+                        v
+Follower B Cache    Follower C Cache    9,998 more    
+(Insert 78901)      (Insert 78901)      (Total writes: 10K)
+
+```
+
 ### Pros and Cons
 
 | Aspect | Description |
@@ -50,6 +64,25 @@ When a user wants to view their feed:
 1. The system retrieves the latest content from a central storage location.
 2. The content is compiled and delivered to the user in real-time.
 3. This allows for dynamic content updates and reduces storage overhead.
+
+Fanout on read assembles a user's timeline on demand at read time by fetching recent posts from each account they follow, then merging and ranking the results. When user B requests their home feed, the system expands B's follow list, queries per author stores or a global recent index for the latest posts from each followee, applies privacy filters (blocks, mutes), and runs ranking algorithms to produce a personalized page. All computation happens on the read path.
+
+```
+                User B Requests Feed
+                (Follows 1,000 accounts)
+                        |
+                        v
+                Graph Expansion
+                (Fetch B's 1,000 followees)                              
+                        |
+                        v
+Author A Feed       Author C Feed        . 998 more
+(fetch recent 20)   (fetch recent 20)    (20K posts fetched)
+                        |
+                        v
+                Merge, Filter, Rank
+                (Return top 50 posts)
+```
 
 ### Pros and Cons
 
