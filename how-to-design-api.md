@@ -1,4 +1,5 @@
 ### What is an API?  
+![alt text](images/whatisapi.png)
 - **API (Application Programming Interface)** defines how software components interact.  
 - Acts as a **contract** between client (e.g., mobile or browser) and server.  
 - Specifies:  
