@@ -1,6 +1,6 @@
 ## System Architecture Documentation Best Practices and Tools
 
-- **how the System from Different Angles**
+- **Show the System from Different Angles**
 
     **A. Conceptual View (PM/UX/business folks)**
 
@@ -43,3 +43,4 @@
     | Scalability | Kubernetes for container orchestration | Can handle 10x daily users without slowdowns. |
     | Performance | CDN + caching | Pages load in under 500ms, no "loading" screens. |
     | Security | TLS 1.3 for data transfer | User data is safe; only authorized systems access PII (Personally Identifiable Information). |
+
