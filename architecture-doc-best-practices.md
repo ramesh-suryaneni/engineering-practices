@@ -9,6 +9,9 @@
     - Example: “User Authentication System,” “Checkout Service”
 
     - Focus on user value and business goals.
+    
+    - **System Context Diagram:** Shows the system and its external dependencies. UX/PM/IT staff can see how it touches users and other systems.
+     ![alt text](images/contextdiagram.png)
 
     **B. Component View (frontend developers/IT staff)**
 
@@ -17,6 +20,9 @@
     - Example: “Web App calls API Gateway → Microservice → Database”
 
     - Focus on data flow and system boundaries.
+    
+    - **Container Diagram:** Shows main boundaries like “Web App,” “Auth API,” “Database.” Frontend and backend teams benefit.
+    ![alt text](images/conatainerdiagram.png)
 
     **C. Operational View (backend/DevOps)**
 
@@ -25,14 +31,6 @@
     - Example: servers, databases, cloud setup, scaling.
 
     - Focus on infrastructure and deployment.
-
-- **Make Diagrams**
-
-     - **System Context Diagram:** Shows the system and its external dependencies. UX/PM/IT staff can see how it touches users and other systems.
-     ![alt text](images/contextdiagram.png)
-
-    - **Container Diagram:** Shows main boundaries like “Web App,” “Auth API,” “Database.” Frontend and backend teams benefit.
-    ![alt text](images/conatainerdiagram.png)
 
     - **UML/Component Diagram:** Shows internal structure or interactions. Mostly backend focus, but helps everyone understand flow.
 
