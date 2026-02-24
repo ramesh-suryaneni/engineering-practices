@@ -17,7 +17,7 @@ The pain points:
 |---------|-------|------------|
 | Cost at Scale | High | Lower (same PostgreSQL for cache) |
 | Operational Complexity | 1. Postgres backup<br>2. Redis backup<br>3. Postgres monitoring<br>4. Redis monitoring<br>5. Postgres failover<br>6. Redis Sentinel/Cluster | 1. Postgres backup<br>2. Postgres monitoring<br>3. Postgres failover |
-| Data Consistency | `await redis.del(\`user:${id}\`);`<br>⚠️ What if Redis is down?<br>⚠️ What if this fails?<br>Now cache and DB are out of sync<br><br>**Issues:**<br>- Cache invalidation complexity<br>- Network dependency<br>- Sync failures possible | `await db.query('UPDATE users SET name = $1 WHERE id = $2', [name, id]);`<br>Everything in Postgres<br>Transactions solve consistency<br><br>**Benefits:**<br>- Single source of truth<br>- ACID guarantees<br>- No sync issues |
+| Data Consistency | `await redis.del(user:${id});`<br>⚠️ What if Redis is down?<br>⚠️ What if this fails?<br>Now cache and DB are out of sync<br><br>**Issues:**<br>- Cache invalidation complexity<br>- Network dependency<br>- Sync failures possible | `await db.query('UPDATE users SET name = $1 WHERE id = $2', [name, id]);`<br>Everything in Postgres<br>Transactions solve consistency<br><br>**Benefits:**<br>- Single source of truth<br>- ACID guarantees<br>- No sync issues |
 
 ## PostgreSQL Features for Cache
 
